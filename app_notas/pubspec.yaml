@@ -1,0 +1,33 @@
+name: app_notas
+description: "App de notas de voz en Flutter"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Audio y permisos
+  record: ^6.2.0
+  audioplayers: ^5.2.1
+  path_provider: ^2.1.2
+  permission_handler: ^11.3.0
+
+  # Ubicación
+  geolocator: ^13.0.1
+  geocoding: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
