@@ -178,12 +178,20 @@ class _RecordingsScreenState extends State<RecordingsScreen> {
         setState(() => _isRecording = false);
       }
     } else {
-      final path = await _newPath();
-      _currentTitle = await _locationService.getLocationName();
-      await _audioService.startRecording(path);
-      _startRecordTimer();
-      _startWaveform();
-      setState(() => _isRecording = true);
+      try {
+        final path = await _newPath();
+        _currentTitle = await _locationService.getLocationName();
+        await _audioService.startRecording(path);
+        _startRecordTimer();
+        _startWaveform();
+        setState(() => _isRecording = true);
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error al iniciar grabación: $e')),
+          );
+        }
+      }
     }
   }
 
